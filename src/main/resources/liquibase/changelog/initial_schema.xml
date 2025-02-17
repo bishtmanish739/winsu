@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <!-- Define your schema changes here -->
+
+    <!-- User Table -->
+    <changeSet id="1" author="mahavir.singh">
+        <createTable tableName="user">
+            <column name="user_id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="phone_number" type="VARCHAR(255)"/>
+            <column name="wallet_balance" type="float" defaultValue="0.00"/>
+            <column name="points" type="float" defaultValue="0.00"/>
+        </createTable>
+    </changeSet>
+
+    <!-- Event Table -->
+    <changeSet id="2" author="mahavir.singh">
+        <createTable tableName="event">
+            <column name="event_id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="event_name" type="VARCHAR(255)"/>
+            <column name="start_time" type="TIMESTAMP"/>
+            <column name="end_time" type="TIMESTAMP"/>
+            <column name="status" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+
+    <!-- Question Table -->
+    <changeSet id="3" author="mahavir.singh">
+        <createTable tableName="question">
+            <column name="question_id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="question_text" type="TEXT"/>
+            <column name="type" type="VARCHAR(50)"/>
+            <column name="active_start_time" type="TIMESTAMP"/>
+            <column name="active_end_time" type="TIMESTAMP"/>
+            <column name="options" type="TEXT"/>
+            <column name="correct_answer" type="VARCHAR(255)"/>
+            <column name="event_id" type="BIGINT"/>
+        </createTable>
+        <addForeignKeyConstraint
+                baseTableName="question"
+                baseColumnNames="event_id"
+                constraintName="fk_question_event"
+                referencedTableName="event"
+                referencedColumnNames="event_id"/>
+    </changeSet>
+
+    <!-- UserAnswer Table -->
+    <changeSet id="4" author="mahavir.singh">
+        <createTable tableName="user_answer">
+            <column name="user_answer_id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT"/>
+            <column name="question_id" type="BIGINT"/>
+            <column name="selected_option" type="VARCHAR(255)"/>
+            <column name="is_correct" type="BOOLEAN"/>
+        </createTable>
+        <addForeignKeyConstraint
+                baseTableName="user_answer"
+                baseColumnNames="user_id"
+                constraintName="fk_user_answer_user"
+                referencedTableName="user"
+                referencedColumnNames="user_id"/>
+        <addForeignKeyConstraint
+                baseTableName="user_answer"
+                baseColumnNames="question_id"
+                constraintName="fk_user_answer_question"
+                referencedTableName="question"
+                referencedColumnNames="question_id"/>
+    </changeSet>
+
+    <!-- RewardDistribution Table -->
+    <changeSet id="5" author="mahavir.singh">
+        <createTable tableName="reward_distribution">
+            <column name="distribution_id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="date" type="DATE"/>
+            <column name="total_amount" type="float"/>
+            <column name="per_point_value" type="float"/>
+        </createTable>
+    </changeSet>
+
+    <!-- WalletTransaction Table -->
+    <changeSet id="6" author="mahavir.singh">
+        <createTable tableName="wallet_transaction">
+            <column name="transaction_id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT"/>
+            <column name="amount" type="float"/>
+            <column name="transaction_type" type="VARCHAR(50)"/>
+            <column name="timestamp" type="TIMESTAMP"/>
+        </createTable>
+        <addForeignKeyConstraint
+                baseTableName="wallet_transaction"
+                baseColumnNames="user_id"
+                constraintName="fk_wallet_transaction_user"
+                referencedTableName="user"
+                referencedColumnNames="user_id"/>
+    </changeSet>
+
+    <changeSet id="7" author="mahavir.singh">
+        <createTable tableName="correct_answer">
+            <column name="correct_answer_id" type="BIGINT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="event_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="question_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="correct_option" type="VARCHAR(255)"/>
+        </createTable>
+        <addForeignKeyConstraint
+                baseTableName="correct_answer"
+                baseColumnNames="event_id"
+                constraintName="fk_correct_answer_event"
+                referencedTableName="event"
+                referencedColumnNames="event_id"/>
+        <addForeignKeyConstraint
+                baseTableName="correct_answer"
+                baseColumnNames="question_id"
+                constraintName="fk_correct_answer_question"
+                referencedTableName="question"
+                referencedColumnNames="question_id"/>
+    </changeSet>
+
+    <changeSet id="9" author="mahavir.singh">
+        <createTable tableName="roles">
+            <column name="role_id" type="BIGINT" >
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="role_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+
+
+    </changeSet>
+    <changeSet id="10" author="mahavir.singh">
+        <createTable tableName="user_roles">
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey tableName="user_roles" columnNames="user_id, role_id" constraintName="pk_user_roles"/>
+
+        <addForeignKeyConstraint
+                baseTableName="user_roles"
+                baseColumnNames="user_id"
+                constraintName="fk_user_roles_user"
+                referencedTableName="user"
+                referencedColumnNames="user_id"/>
+
+        <addForeignKeyConstraint
+                baseTableName="user_roles"
+                baseColumnNames="role_id"
+                constraintName="fk_user_roles_role"
+                referencedTableName="roles"
+                referencedColumnNames="role_id"/>
+    </changeSet>
+
+
+</databaseChangeLog>
