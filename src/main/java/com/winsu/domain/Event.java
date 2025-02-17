@@ -14,4 +14,5 @@ public class Event {
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private String status; // UPCOMING, LIVE, COMPLETED
+    private String eventImageUrl;
 }

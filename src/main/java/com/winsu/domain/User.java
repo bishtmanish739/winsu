@@ -12,6 +12,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
+    private String name;
+    private String email;
+    private String phoneNumber;
+    private float walletBalance;
+    private float points;
+
     @ManyToMany
     @JoinTable(
             name = "user_roles",

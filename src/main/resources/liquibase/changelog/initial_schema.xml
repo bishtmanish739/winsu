@@ -28,6 +28,7 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="event_name" type="VARCHAR(255)"/>
+            <column name="event_image_url" type="VARCHAR(255)"/>
             <column name="start_time" type="TIMESTAMP"/>
             <column name="end_time" type="TIMESTAMP"/>
             <column name="status" type="VARCHAR(50)"/>
