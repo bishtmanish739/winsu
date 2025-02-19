@@ -1,1203 +1,315 @@
-2025-02-17 21:22:14 - Starting WinsuApplication using Java 17.0.2 with PID 23372 (C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes started by bisht in C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu)
-2025-02-17 21:22:14 - No active profile set, falling back to 1 default profile: "default"
-2025-02-17 21:22:15 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-02-17 21:22:15 - Finished Spring Data repository scanning in 37 ms. Found 0 JPA repository interfaces.
-2025-02-17 21:22:16 - Tomcat initialized with port 8081 (http)
-2025-02-17 21:22:16 - Starting service [Tomcat]
-2025-02-17 21:22:16 - Starting Servlet engine: [Apache Tomcat/10.1.16]
-2025-02-17 21:22:16 - Initializing Spring embedded WebApplicationContext
-2025-02-17 21:22:16 - Root WebApplicationContext: initialization completed in 2371 ms
-2025-02-17 21:22:17 - HikariPool-1 - Starting...
-2025-02-17 21:22:17 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@67e0ff3a
-2025-02-17 21:22:17 - HikariPool-1 - Start completed.
-2025-02-17 21:22:17 - Set default schema name to public
-2025-02-17 21:22:18 - Creating database history table with name: public.databasechangelog
-2025-02-17 21:22:18 - Reading from public.databasechangelog
-2025-02-17 21:22:18 - Successfully acquired change log lock
-2025-02-17 21:22:18 - Using deploymentId: 9807538941
-2025-02-17 21:22:18 - Reading from public.databasechangelog
-2025-02-17 21:22:19 - Table user created
-2025-02-17 21:22:19 - ChangeSet liquibase/changelog/initial_schema.xml::1::mahavir.singh ran successfully in 17ms
-2025-02-17 21:22:19 - Table event created
-2025-02-17 21:22:19 - ChangeSet liquibase/changelog/initial_schema.xml::2::mahavir.singh ran successfully in 12ms
-2025-02-17 21:22:19 - Table question created
-2025-02-17 21:22:19 - Foreign key constraint added to question (event_id)
-2025-02-17 21:22:19 - ChangeSet liquibase/changelog/initial_schema.xml::3::mahavir.singh ran successfully in 18ms
-2025-02-17 21:22:19 - Table user_answer created
-2025-02-17 21:22:19 - Foreign key constraint added to user_answer (user_id)
-2025-02-17 21:22:19 - Foreign key constraint added to user_answer (question_id)
-2025-02-17 21:22:19 - ChangeSet liquibase/changelog/initial_schema.xml::4::mahavir.singh ran successfully in 19ms
-2025-02-17 21:22:19 - Table reward_distribution created
-2025-02-17 21:22:19 - ChangeSet liquibase/changelog/initial_schema.xml::5::mahavir.singh ran successfully in 8ms
-2025-02-17 21:22:19 - Table wallet_transaction created
-2025-02-17 21:22:19 - Foreign key constraint added to wallet_transaction (user_id)
-2025-02-17 21:22:19 - ChangeSet liquibase/changelog/initial_schema.xml::6::mahavir.singh ran successfully in 14ms
-2025-02-17 21:22:19 - Table correct_answer created
-2025-02-17 21:22:19 - Foreign key constraint added to correct_answer (event_id)
-2025-02-17 21:22:19 - Foreign key constraint added to correct_answer (question_id)
-2025-02-17 21:22:19 - ChangeSet liquibase/changelog/initial_schema.xml::7::mahavir.singh ran successfully in 19ms
-2025-02-17 21:22:19 - Table roles created
-2025-02-17 21:22:19 - Primary key added to roles (role_id)
-2025-02-17 21:22:19 - ChangeSet liquibase/changelog/initial_schema.xml::9::mahavir.singh encountered an exception.
-2025-02-17 21:22:19 - Update command encountered an exception.
-2025-02-17 21:22:19 - Successfully released change log lock
-2025-02-17 21:22:19 - Command execution complete
-2025-02-17 21:22:19 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset liquibase/changelog/initial_schema.xml::9::mahavir.singh:
-     Reason: liquibase.exception.DatabaseException: ERROR: foreign key constraint "fk_user_roles_user" cannot be implemented
-  Detail: Key columns "role_id" and "user_id" are of incompatible types: bigint and character varying. [Failed SQL: (0) ALTER TABLE public.roles ADD CONSTRAINT fk_user_roles_user FOREIGN KEY (role_id) REFERENCES public."user" (user_id)]
-2025-02-17 21:22:19 - HikariPool-1 - Shutdown initiated...
-2025-02-17 21:22:19 - HikariPool-1 - Shutdown completed.
-2025-02-17 21:22:19 - Stopping service [Tomcat]
-2025-02-17 21:22:19 - 
+2025-02-19 21:08:49 - Starting WinsuApplication using Java 17.0.2 with PID 3472 (C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes started by bisht in C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu)
+2025-02-19 21:08:49 - No active profile set, falling back to 1 default profile: "default"
+2025-02-19 21:08:50 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-19 21:08:51 - Finished Spring Data repository scanning in 222 ms. Found 1 JPA repository interface.
+2025-02-19 21:08:52 - Tomcat initialized with port 8081 (http)
+2025-02-19 21:08:52 - Starting service [Tomcat]
+2025-02-19 21:08:52 - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-02-19 21:08:52 - Initializing Spring embedded WebApplicationContext
+2025-02-19 21:08:52 - Root WebApplicationContext: initialization completed in 2519 ms
+2025-02-19 21:08:52 - HikariPool-1 - Starting...
+2025-02-19 21:08:53 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4d464510
+2025-02-19 21:08:53 - HikariPool-1 - Start completed.
+2025-02-19 21:08:53 - Set default schema name to public
+2025-02-19 21:08:54 - Reading from public.databasechangelog
+2025-02-19 21:08:54 - Reading from public.databasechangelog
+2025-02-19 21:08:54 - UPDATE SUMMARY
+2025-02-19 21:08:54 - Run:                          0
+2025-02-19 21:08:54 - Previously run:               9
+2025-02-19 21:08:54 - Filtered out:                 0
+2025-02-19 21:08:54 - -------------------------------
+2025-02-19 21:08:54 - Total change sets:            9
+2025-02-19 21:08:54 - Update summary generated
+2025-02-19 21:08:54 - Successfully released change log lock
+2025-02-19 21:08:54 - Command execution complete
+2025-02-19 21:08:55 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-19 21:08:55 - HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-02-19 21:08:55 - HHH000026: Second-level cache disabled
+2025-02-19 21:08:55 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-19 21:08:55 - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-19 21:08:56 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-19 21:08:57 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-19 21:08:57 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'eventController' defined in file [C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes\com\winsu\controller\EventController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'eventServiceImpl' defined in file [C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes\com\winsu\services\impl\EventServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 1: No qualifying bean of type 'com.winsu.mapper.EventMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-02-19 21:08:57 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-19 21:08:57 - HikariPool-1 - Shutdown initiated...
+2025-02-19 21:08:57 - HikariPool-1 - Shutdown completed.
+2025-02-19 21:08:57 - Stopping service [Tomcat]
+2025-02-19 21:08:58 - 
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-02-17 21:22:19 - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset liquibase/changelog/initial_schema.xml::9::mahavir.singh:
-     Reason: liquibase.exception.DatabaseException: ERROR: foreign key constraint "fk_user_roles_user" cannot be implemented
-  Detail: Key columns "role_id" and "user_id" are of incompatible types: bigint and character varying. [Failed SQL: (0) ALTER TABLE public.roles ADD CONSTRAINT fk_user_roles_user FOREIGN KEY (role_id) REFERENCES public."user" (user_id)]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1775)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
-	at com.winsu.WinsuApplication.main(WinsuApplication.java:10)
-Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset liquibase/changelog/initial_schema.xml::9::mahavir.singh:
-     Reason: liquibase.exception.DatabaseException: ERROR: foreign key constraint "fk_user_roles_user" cannot be implemented
-  Detail: Key columns "role_id" and "user_id" are of incompatible types: bigint and character varying. [Failed SQL: (0) ALTER TABLE public.roles ADD CONSTRAINT fk_user_roles_user FOREIGN KEY (role_id) REFERENCES public."user" (user_id)]
-	at liquibase.command.CommandScope.execute(CommandScope.java:237)
-	at liquibase.Liquibase.lambda$update$0(Liquibase.java:222)
-	at liquibase.Scope.lambda$child$0(Scope.java:184)
-	at liquibase.Scope.child(Scope.java:193)
-	at liquibase.Scope.child(Scope.java:183)
-	at liquibase.Scope.child(Scope.java:162)
-	at liquibase.Liquibase.runInScope(Liquibase.java:1371)
-	at liquibase.Liquibase.update(Liquibase.java:211)
-	at liquibase.Liquibase.update(Liquibase.java:193)
-	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:331)
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:286)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
-	... 18 common frames omitted
-Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset liquibase/changelog/initial_schema.xml::9::mahavir.singh:
-     Reason: liquibase.exception.DatabaseException: ERROR: foreign key constraint "fk_user_roles_user" cannot be implemented
-  Detail: Key columns "role_id" and "user_id" are of incompatible types: bigint and character varying. [Failed SQL: (0) ALTER TABLE public.roles ADD CONSTRAINT fk_user_roles_user FOREIGN KEY (role_id) REFERENCES public."user" (user_id)]
-	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:122)
-	at liquibase.command.core.AbstractUpdateCommandStep.lambda$doRun$1(AbstractUpdateCommandStep.java:105)
-	at liquibase.Scope.lambda$child$0(Scope.java:184)
-	at liquibase.Scope.child(Scope.java:193)
-	at liquibase.Scope.child(Scope.java:183)
-	at liquibase.Scope.child(Scope.java:162)
-	at liquibase.command.core.AbstractUpdateCommandStep.doRun(AbstractUpdateCommandStep.java:104)
-	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$0(AbstractUpdateCommandStep.java:63)
-	at liquibase.Scope.lambda$child$0(Scope.java:184)
-	at liquibase.Scope.child(Scope.java:193)
-	at liquibase.Scope.child(Scope.java:183)
-	at liquibase.Scope.child(Scope.java:162)
-	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:62)
-	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:106)
-	at liquibase.command.CommandScope.execute(CommandScope.java:214)
-	... 30 common frames omitted
-Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset liquibase/changelog/initial_schema.xml::9::mahavir.singh:
-     Reason: liquibase.exception.DatabaseException: ERROR: foreign key constraint "fk_user_roles_user" cannot be implemented
-  Detail: Key columns "role_id" and "user_id" are of incompatible types: bigint and character varying. [Failed SQL: (0) ALTER TABLE public.roles ADD CONSTRAINT fk_user_roles_user FOREIGN KEY (role_id) REFERENCES public."user" (user_id)]
-	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:785)
-	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:118)
-	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:68)
-	at liquibase.changelog.ChangeLogIterator$2.lambda$run$0(ChangeLogIterator.java:110)
-	at liquibase.Scope.lambda$child$0(Scope.java:184)
-	at liquibase.Scope.child(Scope.java:193)
-	at liquibase.Scope.child(Scope.java:183)
-	at liquibase.Scope.child(Scope.java:162)
-	at liquibase.Scope.child(Scope.java:250)
-	at liquibase.changelog.ChangeLogIterator$2.run(ChangeLogIterator.java:100)
-	at liquibase.Scope.lambda$child$0(Scope.java:184)
-	at liquibase.Scope.child(Scope.java:193)
-	at liquibase.Scope.child(Scope.java:183)
-	at liquibase.Scope.child(Scope.java:162)
-	at liquibase.Scope.child(Scope.java:250)
-	at liquibase.Scope.child(Scope.java:254)
-	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:74)
-	... 44 common frames omitted
-Caused by: liquibase.exception.DatabaseException: ERROR: foreign key constraint "fk_user_roles_user" cannot be implemented
-  Detail: Key columns "role_id" and "user_id" are of incompatible types: bigint and character varying. [Failed SQL: (0) ALTER TABLE public.roles ADD CONSTRAINT fk_user_roles_user FOREIGN KEY (role_id) REFERENCES public."user" (user_id)]
-	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:468)
-	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:77)
-	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:177)
-	at liquibase.database.AbstractJdbcDatabase.execute(AbstractJdbcDatabase.java:1291)
-	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1273)
-	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:744)
-	... 60 common frames omitted
-Caused by: org.postgresql.util.PSQLException: ERROR: foreign key constraint "fk_user_roles_user" cannot be implemented
-  Detail: Key columns "role_id" and "user_id" are of incompatible types: bigint and character varying.
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
-	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498)
-	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415)
-	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:335)
-	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:321)
-	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:297)
-	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:292)
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
-	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:462)
-	... 65 common frames omitted
-2025-02-17 21:31:58 - Starting WinsuApplication using Java 17.0.2 with PID 19064 (C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes started by bisht in C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu)
-2025-02-17 21:31:58 - No active profile set, falling back to 1 default profile: "default"
-2025-02-17 21:31:59 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-02-17 21:31:59 - Finished Spring Data repository scanning in 30 ms. Found 0 JPA repository interfaces.
-2025-02-17 21:32:00 - Tomcat initialized with port 8081 (http)
-2025-02-17 21:32:00 - Starting service [Tomcat]
-2025-02-17 21:32:00 - Starting Servlet engine: [Apache Tomcat/10.1.16]
-2025-02-17 21:32:00 - Initializing Spring embedded WebApplicationContext
-2025-02-17 21:32:00 - Root WebApplicationContext: initialization completed in 2101 ms
-2025-02-17 21:32:01 - HikariPool-1 - Starting...
-2025-02-17 21:32:01 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@373052b5
-2025-02-17 21:32:01 - HikariPool-1 - Start completed.
-2025-02-17 21:32:01 - Set default schema name to public
-2025-02-17 21:32:02 - Reading from public.databasechangelog
-2025-02-17 21:32:02 - Successfully acquired change log lock
-2025-02-17 21:32:02 - Using deploymentId: 9808122674
-2025-02-17 21:32:02 - Reading from public.databasechangelog
-2025-02-17 21:32:02 - Table roles created
-2025-02-17 21:32:02 - Primary key added to roles (role_id)
-2025-02-17 21:32:02 - Foreign key constraint added to roles (role_id)
-2025-02-17 21:32:02 - ChangeSet liquibase/changelog/initial_schema.xml::9::mahavir.singh ran successfully in 34ms
-2025-02-17 21:32:02 - UPDATE SUMMARY
-2025-02-17 21:32:02 - Run:                          1
-2025-02-17 21:32:02 - Previously run:               7
-2025-02-17 21:32:02 - Filtered out:                 0
-2025-02-17 21:32:02 - -------------------------------
-2025-02-17 21:32:02 - Total change sets:            8
-2025-02-17 21:32:02 - Update summary generated
-2025-02-17 21:32:02 - Update command completed successfully.
-2025-02-17 21:32:02 - Successfully released change log lock
-2025-02-17 21:32:02 - Command execution complete
-2025-02-17 21:32:02 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-02-17 21:32:03 - HHH000412: Hibernate ORM core version 6.3.1.Final
-2025-02-17 21:32:03 - HHH000026: Second-level cache disabled
-2025-02-17 21:32:03 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-02-17 21:32:03 - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-02-17 21:32:04 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-02-17 21:32:04 - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [role]
-2025-02-17 21:32:04 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [role]
-2025-02-17 21:32:04 - HikariPool-1 - Shutdown initiated...
-2025-02-17 21:32:04 - HikariPool-1 - Shutdown completed.
-2025-02-17 21:32:04 - Stopping service [Tomcat]
-2025-02-17 21:32:04 - 
+2025-02-19 21:08:58 - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of constructor in com.winsu.services.impl.EventServiceImpl required a bean of type 'com.winsu.mapper.EventMapper' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.winsu.mapper.EventMapper' in your configuration.
+
+2025-02-19 21:12:22 - Starting WinsuApplication using Java 17.0.2 with PID 2692 (C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes started by bisht in C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu)
+2025-02-19 21:12:22 - No active profile set, falling back to 1 default profile: "default"
+2025-02-19 21:12:23 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-19 21:12:23 - Finished Spring Data repository scanning in 132 ms. Found 1 JPA repository interface.
+2025-02-19 21:12:24 - Tomcat initialized with port 8081 (http)
+2025-02-19 21:12:24 - Starting service [Tomcat]
+2025-02-19 21:12:24 - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-02-19 21:12:24 - Initializing Spring embedded WebApplicationContext
+2025-02-19 21:12:24 - Root WebApplicationContext: initialization completed in 2199 ms
+2025-02-19 21:12:25 - HikariPool-1 - Starting...
+2025-02-19 21:12:25 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4f93bf0a
+2025-02-19 21:12:25 - HikariPool-1 - Start completed.
+2025-02-19 21:12:25 - Set default schema name to public
+2025-02-19 21:12:26 - Reading from public.databasechangelog
+2025-02-19 21:12:26 - Reading from public.databasechangelog
+2025-02-19 21:12:26 - UPDATE SUMMARY
+2025-02-19 21:12:26 - Run:                          0
+2025-02-19 21:12:26 - Previously run:               9
+2025-02-19 21:12:26 - Filtered out:                 0
+2025-02-19 21:12:26 - -------------------------------
+2025-02-19 21:12:26 - Total change sets:            9
+2025-02-19 21:12:26 - Update summary generated
+2025-02-19 21:12:26 - Successfully released change log lock
+2025-02-19 21:12:26 - Command execution complete
+2025-02-19 21:12:26 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-19 21:12:26 - HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-02-19 21:12:26 - HHH000026: Second-level cache disabled
+2025-02-19 21:12:27 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-19 21:12:27 - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-19 21:12:28 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-19 21:12:28 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-19 21:12:28 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'eventController' defined in file [C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes\com\winsu\controller\EventController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'eventServiceImpl' defined in file [C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes\com\winsu\services\impl\EventServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 1: No qualifying bean of type 'com.winsu.mapper.EventMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-02-19 21:12:28 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-19 21:12:28 - HikariPool-1 - Shutdown initiated...
+2025-02-19 21:12:28 - HikariPool-1 - Shutdown completed.
+2025-02-19 21:12:28 - Stopping service [Tomcat]
+2025-02-19 21:12:28 - 
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-02-17 21:32:04 - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [role]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1775)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
-	at com.winsu.WinsuApplication.main(WinsuApplication.java:10)
-Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [role]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
-	... 16 common frames omitted
-Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [role]
-	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:134)
-	at org.hibernate.tool.schema.internal.GroupedSchemaValidatorImpl.validateTables(GroupedSchemaValidatorImpl.java:46)
-	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.performValidation(AbstractSchemaValidator.java:97)
-	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.doValidation(AbstractSchemaValidator.java:75)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:295)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
-	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
-	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
-	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:295)
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	... 20 common frames omitted
-2025-02-17 21:32:53 - Starting WinsuApplication using Java 17.0.2 with PID 20604 (C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes started by bisht in C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu)
-2025-02-17 21:32:53 - No active profile set, falling back to 1 default profile: "default"
-2025-02-17 21:32:54 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-02-17 21:32:54 - Finished Spring Data repository scanning in 32 ms. Found 0 JPA repository interfaces.
-2025-02-17 21:32:55 - Tomcat initialized with port 8081 (http)
-2025-02-17 21:32:55 - Starting service [Tomcat]
-2025-02-17 21:32:55 - Starting Servlet engine: [Apache Tomcat/10.1.16]
-2025-02-17 21:32:55 - Initializing Spring embedded WebApplicationContext
-2025-02-17 21:32:55 - Root WebApplicationContext: initialization completed in 2039 ms
-2025-02-17 21:32:55 - HikariPool-1 - Starting...
-2025-02-17 21:32:56 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@64bebd55
-2025-02-17 21:32:56 - HikariPool-1 - Start completed.
-2025-02-17 21:32:56 - Set default schema name to public
-2025-02-17 21:32:57 - Creating database history table with name: public.databasechangelog
-2025-02-17 21:32:57 - Reading from public.databasechangelog
-2025-02-17 21:32:57 - Successfully acquired change log lock
-2025-02-17 21:32:57 - Using deploymentId: 9808177624
-2025-02-17 21:32:57 - Reading from public.databasechangelog
-2025-02-17 21:32:57 - Table user created
-2025-02-17 21:32:57 - ChangeSet liquibase/changelog/initial_schema.xml::1::mahavir.singh ran successfully in 22ms
-2025-02-17 21:32:57 - Table event created
-2025-02-17 21:32:57 - ChangeSet liquibase/changelog/initial_schema.xml::2::mahavir.singh ran successfully in 11ms
-2025-02-17 21:32:57 - Table question created
-2025-02-17 21:32:57 - Foreign key constraint added to question (event_id)
-2025-02-17 21:32:57 - ChangeSet liquibase/changelog/initial_schema.xml::3::mahavir.singh ran successfully in 25ms
-2025-02-17 21:32:57 - Table user_answer created
-2025-02-17 21:32:57 - Foreign key constraint added to user_answer (user_id)
-2025-02-17 21:32:57 - Foreign key constraint added to user_answer (question_id)
-2025-02-17 21:32:57 - ChangeSet liquibase/changelog/initial_schema.xml::4::mahavir.singh ran successfully in 19ms
-2025-02-17 21:32:57 - Table reward_distribution created
-2025-02-17 21:32:57 - ChangeSet liquibase/changelog/initial_schema.xml::5::mahavir.singh ran successfully in 7ms
-2025-02-17 21:32:57 - Table wallet_transaction created
-2025-02-17 21:32:57 - Foreign key constraint added to wallet_transaction (user_id)
-2025-02-17 21:32:57 - ChangeSet liquibase/changelog/initial_schema.xml::6::mahavir.singh ran successfully in 10ms
-2025-02-17 21:32:57 - Table correct_answer created
-2025-02-17 21:32:57 - Foreign key constraint added to correct_answer (event_id)
-2025-02-17 21:32:57 - Foreign key constraint added to correct_answer (question_id)
-2025-02-17 21:32:57 - ChangeSet liquibase/changelog/initial_schema.xml::7::mahavir.singh ran successfully in 19ms
-2025-02-17 21:32:57 - Table roles created
-2025-02-17 21:32:57 - Primary key added to roles (role_id)
-2025-02-17 21:32:57 - Foreign key constraint added to roles (role_id)
-2025-02-17 21:32:57 - ChangeSet liquibase/changelog/initial_schema.xml::9::mahavir.singh ran successfully in 21ms
-2025-02-17 21:32:57 - UPDATE SUMMARY
-2025-02-17 21:32:57 - Run:                          8
-2025-02-17 21:32:57 - Previously run:               0
-2025-02-17 21:32:57 - Filtered out:                 0
-2025-02-17 21:32:57 - -------------------------------
-2025-02-17 21:32:57 - Total change sets:            8
-2025-02-17 21:32:57 - Update summary generated
-2025-02-17 21:32:57 - Update command completed successfully.
-2025-02-17 21:32:57 - Successfully released change log lock
-2025-02-17 21:32:57 - Command execution complete
-2025-02-17 21:32:58 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-02-17 21:32:58 - HHH000412: Hibernate ORM core version 6.3.1.Final
-2025-02-17 21:32:58 - HHH000026: Second-level cache disabled
-2025-02-17 21:32:58 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-02-17 21:32:58 - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-02-17 21:32:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-02-17 21:32:59 - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [role]
-2025-02-17 21:32:59 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [role]
-2025-02-17 21:32:59 - HikariPool-1 - Shutdown initiated...
-2025-02-17 21:32:59 - HikariPool-1 - Shutdown completed.
-2025-02-17 21:32:59 - Stopping service [Tomcat]
-2025-02-17 21:32:59 - 
+2025-02-19 21:12:28 - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of constructor in com.winsu.services.impl.EventServiceImpl required a bean of type 'com.winsu.mapper.EventMapper' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.winsu.mapper.EventMapper' in your configuration.
+
+2025-02-19 21:14:06 - Starting WinsuApplication using Java 17.0.2 with PID 17552 (C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes started by bisht in C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu)
+2025-02-19 21:14:06 - No active profile set, falling back to 1 default profile: "default"
+2025-02-19 21:14:07 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-19 21:14:07 - Finished Spring Data repository scanning in 97 ms. Found 1 JPA repository interface.
+2025-02-19 21:14:08 - Tomcat initialized with port 8081 (http)
+2025-02-19 21:14:08 - Starting service [Tomcat]
+2025-02-19 21:14:08 - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-02-19 21:14:08 - Initializing Spring embedded WebApplicationContext
+2025-02-19 21:14:08 - Root WebApplicationContext: initialization completed in 2180 ms
+2025-02-19 21:14:09 - HikariPool-1 - Starting...
+2025-02-19 21:14:09 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2519026b
+2025-02-19 21:14:09 - HikariPool-1 - Start completed.
+2025-02-19 21:14:09 - Set default schema name to public
+2025-02-19 21:14:10 - Reading from public.databasechangelog
+2025-02-19 21:14:10 - Reading from public.databasechangelog
+2025-02-19 21:14:10 - UPDATE SUMMARY
+2025-02-19 21:14:10 - Run:                          0
+2025-02-19 21:14:10 - Previously run:               9
+2025-02-19 21:14:10 - Filtered out:                 0
+2025-02-19 21:14:10 - -------------------------------
+2025-02-19 21:14:10 - Total change sets:            9
+2025-02-19 21:14:10 - Update summary generated
+2025-02-19 21:14:10 - Successfully released change log lock
+2025-02-19 21:14:10 - Command execution complete
+2025-02-19 21:14:10 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-19 21:14:10 - HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-02-19 21:14:10 - HHH000026: Second-level cache disabled
+2025-02-19 21:14:11 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-19 21:14:11 - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-19 21:14:12 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-19 21:14:12 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-19 21:14:12 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'eventController' defined in file [C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes\com\winsu\controller\EventController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'eventServiceImpl' defined in file [C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes\com\winsu\services\impl\EventServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 1: No qualifying bean of type 'com.winsu.mapper.EventMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-02-19 21:14:12 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-19 21:14:12 - HikariPool-1 - Shutdown initiated...
+2025-02-19 21:14:12 - HikariPool-1 - Shutdown completed.
+2025-02-19 21:14:12 - Stopping service [Tomcat]
+2025-02-19 21:14:12 - 
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-02-17 21:32:59 - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [role]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1775)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
-	at com.winsu.WinsuApplication.main(WinsuApplication.java:10)
-Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [role]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
-	... 16 common frames omitted
-Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [role]
-	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:134)
-	at org.hibernate.tool.schema.internal.GroupedSchemaValidatorImpl.validateTables(GroupedSchemaValidatorImpl.java:46)
-	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.performValidation(AbstractSchemaValidator.java:97)
-	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.doValidation(AbstractSchemaValidator.java:75)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:295)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
-	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
-	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
-	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:295)
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	... 20 common frames omitted
-2025-02-17 21:34:37 - Starting WinsuApplication using Java 17.0.2 with PID 7588 (C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes started by bisht in C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu)
-2025-02-17 21:34:37 - No active profile set, falling back to 1 default profile: "default"
-2025-02-17 21:34:39 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-02-17 21:34:39 - Finished Spring Data repository scanning in 26 ms. Found 0 JPA repository interfaces.
-2025-02-17 21:34:39 - Tomcat initialized with port 8081 (http)
-2025-02-17 21:34:39 - Starting service [Tomcat]
-2025-02-17 21:34:39 - Starting Servlet engine: [Apache Tomcat/10.1.16]
-2025-02-17 21:34:40 - Initializing Spring embedded WebApplicationContext
-2025-02-17 21:34:40 - Root WebApplicationContext: initialization completed in 2143 ms
-2025-02-17 21:34:40 - HikariPool-1 - Starting...
-2025-02-17 21:34:40 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@15a3b42
-2025-02-17 21:34:40 - HikariPool-1 - Start completed.
-2025-02-17 21:34:40 - Set default schema name to public
-2025-02-17 21:34:41 - Reading from public.databasechangelog
-2025-02-17 21:34:41 - Change failed validation!
-2025-02-17 21:34:41 - Command execution complete
-2025-02-17 21:34:41 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          liquibase/changelog/initial_schema.xml::9::mahavir.singh was: 9:f55391f18ccbb7d71a57df4842ce1fd5 but is now: 9:1f6f4692ab7eca0afcf225ab368ea4d1
+2025-02-19 21:14:12 - 
 
-2025-02-17 21:34:41 - HikariPool-1 - Shutdown initiated...
-2025-02-17 21:34:41 - HikariPool-1 - Shutdown completed.
-2025-02-17 21:34:41 - Stopping service [Tomcat]
-2025-02-17 21:34:41 - 
+***************************
+APPLICATION FAILED TO START
+***************************
 
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-02-17 21:34:41 - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          liquibase/changelog/initial_schema.xml::9::mahavir.singh was: 9:f55391f18ccbb7d71a57df4842ce1fd5 but is now: 9:1f6f4692ab7eca0afcf225ab368ea4d1
+Description:
 
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1775)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
-	at com.winsu.WinsuApplication.main(WinsuApplication.java:10)
-Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          liquibase/changelog/initial_schema.xml::9::mahavir.singh was: 9:f55391f18ccbb7d71a57df4842ce1fd5 but is now: 9:1f6f4692ab7eca0afcf225ab368ea4d1
+Parameter 1 of constructor in com.winsu.services.impl.EventServiceImpl required a bean of type 'com.winsu.mapper.EventMapper' that could not be found.
 
-	at liquibase.command.CommandScope.execute(CommandScope.java:237)
-	at liquibase.Liquibase.lambda$update$0(Liquibase.java:222)
-	at liquibase.Scope.lambda$child$0(Scope.java:184)
-	at liquibase.Scope.child(Scope.java:193)
-	at liquibase.Scope.child(Scope.java:183)
-	at liquibase.Scope.child(Scope.java:162)
-	at liquibase.Liquibase.runInScope(Liquibase.java:1371)
-	at liquibase.Liquibase.update(Liquibase.java:211)
-	at liquibase.Liquibase.update(Liquibase.java:193)
-	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:331)
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:286)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
-	... 18 common frames omitted
-Caused by: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          liquibase/changelog/initial_schema.xml::9::mahavir.singh was: 9:f55391f18ccbb7d71a57df4842ce1fd5 but is now: 9:1f6f4692ab7eca0afcf225ab368ea4d1
 
-	at liquibase.changelog.DatabaseChangeLog.validate(DatabaseChangeLog.java:353)
-	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.run(DatabaseChangelogCommandStep.java:92)
-	at liquibase.command.CommandScope.execute(CommandScope.java:214)
-	... 30 common frames omitted
-2025-02-17 21:34:59 - Starting WinsuApplication using Java 17.0.2 with PID 3948 (C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes started by bisht in C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu)
-2025-02-17 21:34:59 - No active profile set, falling back to 1 default profile: "default"
-2025-02-17 21:35:00 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-02-17 21:35:00 - Finished Spring Data repository scanning in 22 ms. Found 0 JPA repository interfaces.
-2025-02-17 21:35:01 - Tomcat initialized with port 8081 (http)
-2025-02-17 21:35:01 - Starting service [Tomcat]
-2025-02-17 21:35:01 - Starting Servlet engine: [Apache Tomcat/10.1.16]
-2025-02-17 21:35:01 - Initializing Spring embedded WebApplicationContext
-2025-02-17 21:35:01 - Root WebApplicationContext: initialization completed in 2032 ms
-2025-02-17 21:35:01 - HikariPool-1 - Starting...
-2025-02-17 21:35:02 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6588b715
-2025-02-17 21:35:02 - HikariPool-1 - Start completed.
-2025-02-17 21:35:02 - Set default schema name to public
-2025-02-17 21:35:02 - Reading from public.databasechangelog
-2025-02-17 21:35:03 - Reading from public.databasechangelog
-2025-02-17 21:35:03 - UPDATE SUMMARY
-2025-02-17 21:35:03 - Run:                          0
-2025-02-17 21:35:03 - Previously run:               8
-2025-02-17 21:35:03 - Filtered out:                 0
-2025-02-17 21:35:03 - -------------------------------
-2025-02-17 21:35:03 - Total change sets:            8
-2025-02-17 21:35:03 - Update summary generated
-2025-02-17 21:35:03 - Successfully released change log lock
-2025-02-17 21:35:03 - Command execution complete
-2025-02-17 21:35:03 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-02-17 21:35:03 - HHH000412: Hibernate ORM core version 6.3.1.Final
-2025-02-17 21:35:03 - HHH000026: Second-level cache disabled
-2025-02-17 21:35:03 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-02-17 21:35:03 - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-02-17 21:35:04 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-02-17 21:35:05 - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [role]
-2025-02-17 21:35:05 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [role]
-2025-02-17 21:35:05 - HikariPool-1 - Shutdown initiated...
-2025-02-17 21:35:05 - HikariPool-1 - Shutdown completed.
-2025-02-17 21:35:05 - Stopping service [Tomcat]
-2025-02-17 21:35:05 - 
+Action:
 
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-02-17 21:35:05 - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [role]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1775)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
-	at com.winsu.WinsuApplication.main(WinsuApplication.java:10)
-Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [role]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
-	... 16 common frames omitted
-Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [role]
-	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:134)
-	at org.hibernate.tool.schema.internal.GroupedSchemaValidatorImpl.validateTables(GroupedSchemaValidatorImpl.java:46)
-	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.performValidation(AbstractSchemaValidator.java:97)
-	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.doValidation(AbstractSchemaValidator.java:75)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:295)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
-	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
-	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
-	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:295)
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	... 20 common frames omitted
-2025-02-17 21:35:44 - Starting WinsuApplication using Java 17.0.2 with PID 5060 (C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes started by bisht in C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu)
-2025-02-17 21:35:44 - No active profile set, falling back to 1 default profile: "default"
-2025-02-17 21:35:45 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-02-17 21:35:45 - Finished Spring Data repository scanning in 38 ms. Found 0 JPA repository interfaces.
-2025-02-17 21:35:46 - Tomcat initialized with port 8081 (http)
-2025-02-17 21:35:46 - Starting service [Tomcat]
-2025-02-17 21:35:46 - Starting Servlet engine: [Apache Tomcat/10.1.16]
-2025-02-17 21:35:46 - Initializing Spring embedded WebApplicationContext
-2025-02-17 21:35:46 - Root WebApplicationContext: initialization completed in 2400 ms
-2025-02-17 21:35:47 - HikariPool-1 - Starting...
-2025-02-17 21:35:47 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@b791a81
-2025-02-17 21:35:47 - HikariPool-1 - Start completed.
-2025-02-17 21:35:47 - Set default schema name to public
-2025-02-17 21:35:48 - Reading from public.databasechangelog
-2025-02-17 21:35:48 - Reading from public.databasechangelog
-2025-02-17 21:35:48 - UPDATE SUMMARY
-2025-02-17 21:35:48 - Run:                          0
-2025-02-17 21:35:48 - Previously run:               8
-2025-02-17 21:35:48 - Filtered out:                 0
-2025-02-17 21:35:48 - -------------------------------
-2025-02-17 21:35:48 - Total change sets:            8
-2025-02-17 21:35:48 - Update summary generated
-2025-02-17 21:35:48 - Successfully released change log lock
-2025-02-17 21:35:48 - Command execution complete
-2025-02-17 21:35:48 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-02-17 21:35:48 - HHH000412: Hibernate ORM core version 6.3.1.Final
-2025-02-17 21:35:48 - HHH000026: Second-level cache disabled
-2025-02-17 21:35:49 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-02-17 21:35:49 - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-02-17 21:35:50 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-02-17 21:35:50 - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: wrong column type encountered in column [role_id] in table [roles]; found [varchar (Types#VARCHAR)], but expecting [bigint (Types#BIGINT)]
-2025-02-17 21:35:50 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: wrong column type encountered in column [role_id] in table [roles]; found [varchar (Types#VARCHAR)], but expecting [bigint (Types#BIGINT)]
-2025-02-17 21:35:50 - HikariPool-1 - Shutdown initiated...
-2025-02-17 21:35:50 - HikariPool-1 - Shutdown completed.
-2025-02-17 21:35:50 - Stopping service [Tomcat]
-2025-02-17 21:35:50 - 
+Consider defining a bean of type 'com.winsu.mapper.EventMapper' in your configuration.
 
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-02-17 21:35:50 - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: wrong column type encountered in column [role_id] in table [roles]; found [varchar (Types#VARCHAR)], but expecting [bigint (Types#BIGINT)]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1775)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
-	at com.winsu.WinsuApplication.main(WinsuApplication.java:10)
-Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: wrong column type encountered in column [role_id] in table [roles]; found [varchar (Types#VARCHAR)], but expecting [bigint (Types#BIGINT)]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
-	... 16 common frames omitted
-Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: wrong column type encountered in column [role_id] in table [roles]; found [varchar (Types#VARCHAR)], but expecting [bigint (Types#BIGINT)]
-	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateColumnType(AbstractSchemaValidator.java:165)
-	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:152)
-	at org.hibernate.tool.schema.internal.GroupedSchemaValidatorImpl.validateTables(GroupedSchemaValidatorImpl.java:46)
-	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.performValidation(AbstractSchemaValidator.java:97)
-	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.doValidation(AbstractSchemaValidator.java:75)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:295)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
-	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
-	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
-	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:295)
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	... 20 common frames omitted
-2025-02-17 21:36:16 - Starting WinsuApplication using Java 17.0.2 with PID 23488 (C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes started by bisht in C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu)
-2025-02-17 21:36:16 - No active profile set, falling back to 1 default profile: "default"
-2025-02-17 21:36:18 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-02-17 21:36:18 - Finished Spring Data repository scanning in 34 ms. Found 0 JPA repository interfaces.
-2025-02-17 21:36:19 - Tomcat initialized with port 8081 (http)
-2025-02-17 21:36:19 - Starting service [Tomcat]
-2025-02-17 21:36:19 - Starting Servlet engine: [Apache Tomcat/10.1.16]
-2025-02-17 21:36:19 - Initializing Spring embedded WebApplicationContext
-2025-02-17 21:36:19 - Root WebApplicationContext: initialization completed in 2423 ms
-2025-02-17 21:36:19 - HikariPool-1 - Starting...
-2025-02-17 21:36:19 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@fd413fb
-2025-02-17 21:36:19 - HikariPool-1 - Start completed.
-2025-02-17 21:36:20 - Set default schema name to public
-2025-02-17 21:36:21 - Reading from public.databasechangelog
-2025-02-17 21:36:21 - Reading from public.databasechangelog
-2025-02-17 21:36:21 - UPDATE SUMMARY
-2025-02-17 21:36:21 - Run:                          0
-2025-02-17 21:36:21 - Previously run:               8
-2025-02-17 21:36:21 - Filtered out:                 0
-2025-02-17 21:36:21 - -------------------------------
-2025-02-17 21:36:21 - Total change sets:            8
-2025-02-17 21:36:21 - Update summary generated
-2025-02-17 21:36:21 - Successfully released change log lock
-2025-02-17 21:36:21 - Command execution complete
-2025-02-17 21:36:21 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-02-17 21:36:21 - HHH000412: Hibernate ORM core version 6.3.1.Final
-2025-02-17 21:36:21 - HHH000026: Second-level cache disabled
-2025-02-17 21:36:22 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-02-17 21:36:22 - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-02-17 21:36:23 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-02-17 21:36:23 - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [user_roles]
-2025-02-17 21:36:23 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [user_roles]
-2025-02-17 21:36:23 - HikariPool-1 - Shutdown initiated...
-2025-02-17 21:36:23 - HikariPool-1 - Shutdown completed.
-2025-02-17 21:36:23 - Stopping service [Tomcat]
-2025-02-17 21:36:23 - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-02-17 21:36:23 - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [user_roles]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1775)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
-	at com.winsu.WinsuApplication.main(WinsuApplication.java:10)
-Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [user_roles]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
-	... 16 common frames omitted
-Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [user_roles]
-	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:134)
-	at org.hibernate.tool.schema.internal.GroupedSchemaValidatorImpl.validateTables(GroupedSchemaValidatorImpl.java:46)
-	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.performValidation(AbstractSchemaValidator.java:97)
-	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.doValidation(AbstractSchemaValidator.java:75)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:295)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
-	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
-	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
-	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:295)
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	... 20 common frames omitted
-2025-02-17 21:38:46 - Starting WinsuApplication using Java 17.0.2 with PID 3964 (C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes started by bisht in C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu)
-2025-02-17 21:38:46 - No active profile set, falling back to 1 default profile: "default"
-2025-02-17 21:38:47 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-02-17 21:38:47 - Finished Spring Data repository scanning in 29 ms. Found 0 JPA repository interfaces.
-2025-02-17 21:38:48 - Tomcat initialized with port 8081 (http)
-2025-02-17 21:38:48 - Starting service [Tomcat]
-2025-02-17 21:38:48 - Starting Servlet engine: [Apache Tomcat/10.1.16]
-2025-02-17 21:38:48 - Initializing Spring embedded WebApplicationContext
-2025-02-17 21:38:48 - Root WebApplicationContext: initialization completed in 2041 ms
-2025-02-17 21:38:48 - HikariPool-1 - Starting...
-2025-02-17 21:38:49 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@45843650
-2025-02-17 21:38:49 - HikariPool-1 - Start completed.
-2025-02-17 21:38:49 - Set default schema name to public
-2025-02-17 21:38:50 - Reading from public.databasechangelog
-2025-02-17 21:38:50 - Reading from public.databasechangelog
-2025-02-17 21:38:50 - UPDATE SUMMARY
-2025-02-17 21:38:50 - Run:                          0
-2025-02-17 21:38:50 - Previously run:               8
-2025-02-17 21:38:50 - Filtered out:                 0
-2025-02-17 21:38:50 - -------------------------------
-2025-02-17 21:38:50 - Total change sets:            8
-2025-02-17 21:38:50 - Update summary generated
-2025-02-17 21:38:50 - Successfully released change log lock
-2025-02-17 21:38:50 - Command execution complete
-2025-02-17 21:38:50 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-02-17 21:38:50 - HHH000412: Hibernate ORM core version 6.3.1.Final
-2025-02-17 21:38:50 - HHH000026: Second-level cache disabled
-2025-02-17 21:38:51 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-02-17 21:38:51 - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-02-17 21:38:52 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-02-17 21:38:52 - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [user_roles]
-2025-02-17 21:38:52 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [user_roles]
-2025-02-17 21:38:52 - HikariPool-1 - Shutdown initiated...
-2025-02-17 21:38:52 - HikariPool-1 - Shutdown completed.
-2025-02-17 21:38:52 - Stopping service [Tomcat]
-2025-02-17 21:38:52 - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-02-17 21:38:52 - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [user_roles]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1775)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
-	at com.winsu.WinsuApplication.main(WinsuApplication.java:10)
-Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [user_roles]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
-	... 16 common frames omitted
-Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [user_roles]
-	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:134)
-	at org.hibernate.tool.schema.internal.GroupedSchemaValidatorImpl.validateTables(GroupedSchemaValidatorImpl.java:46)
-	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.performValidation(AbstractSchemaValidator.java:97)
-	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.doValidation(AbstractSchemaValidator.java:75)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:295)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
-	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
-	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
-	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:295)
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	... 20 common frames omitted
-2025-02-17 22:32:01 - Starting WinsuApplication using Java 17.0.2 with PID 5396 (C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes started by bisht in C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu)
-2025-02-17 22:32:01 - No active profile set, falling back to 1 default profile: "default"
-2025-02-17 22:32:02 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-02-17 22:32:02 - Finished Spring Data repository scanning in 28 ms. Found 0 JPA repository interfaces.
-2025-02-17 22:32:03 - Tomcat initialized with port 8081 (http)
-2025-02-17 22:32:03 - Starting service [Tomcat]
-2025-02-17 22:32:03 - Starting Servlet engine: [Apache Tomcat/10.1.16]
-2025-02-17 22:32:03 - Initializing Spring embedded WebApplicationContext
-2025-02-17 22:32:03 - Root WebApplicationContext: initialization completed in 2033 ms
-2025-02-17 22:32:03 - HikariPool-1 - Starting...
-2025-02-17 22:32:04 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@fd413fb
-2025-02-17 22:32:04 - HikariPool-1 - Start completed.
-2025-02-17 22:32:04 - Set default schema name to public
-2025-02-17 22:32:05 - Creating database history table with name: public.databasechangelog
-2025-02-17 22:32:05 - Reading from public.databasechangelog
-2025-02-17 22:32:05 - Successfully acquired change log lock
-2025-02-17 22:32:05 - Using deploymentId: 9811725361
-2025-02-17 22:32:05 - Reading from public.databasechangelog
-2025-02-17 22:32:05 - Table user created
-2025-02-17 22:32:05 - ChangeSet liquibase/changelog/initial_schema.xml::1::mahavir.singh ran successfully in 22ms
-2025-02-17 22:32:05 - Table event created
-2025-02-17 22:32:05 - ChangeSet liquibase/changelog/initial_schema.xml::2::mahavir.singh ran successfully in 7ms
-2025-02-17 22:32:05 - Table question created
-2025-02-17 22:32:05 - Foreign key constraint added to question (event_id)
-2025-02-17 22:32:05 - ChangeSet liquibase/changelog/initial_schema.xml::3::mahavir.singh ran successfully in 20ms
-2025-02-17 22:32:05 - Table user_answer created
-2025-02-17 22:32:05 - Foreign key constraint added to user_answer (user_id)
-2025-02-17 22:32:05 - Foreign key constraint added to user_answer (question_id)
-2025-02-17 22:32:05 - ChangeSet liquibase/changelog/initial_schema.xml::4::mahavir.singh ran successfully in 16ms
-2025-02-17 22:32:05 - Table reward_distribution created
-2025-02-17 22:32:05 - ChangeSet liquibase/changelog/initial_schema.xml::5::mahavir.singh ran successfully in 6ms
-2025-02-17 22:32:05 - Table wallet_transaction created
-2025-02-17 22:32:05 - Foreign key constraint added to wallet_transaction (user_id)
-2025-02-17 22:32:05 - ChangeSet liquibase/changelog/initial_schema.xml::6::mahavir.singh ran successfully in 11ms
-2025-02-17 22:32:05 - Table correct_answer created
-2025-02-17 22:32:05 - Foreign key constraint added to correct_answer (event_id)
-2025-02-17 22:32:05 - Foreign key constraint added to correct_answer (question_id)
-2025-02-17 22:32:05 - ChangeSet liquibase/changelog/initial_schema.xml::7::mahavir.singh ran successfully in 17ms
-2025-02-17 22:32:05 - Table roles created
-2025-02-17 22:32:05 - ChangeSet liquibase/changelog/initial_schema.xml::9::mahavir.singh encountered an exception.
-2025-02-17 22:32:05 - Update command encountered an exception.
-2025-02-17 22:32:05 - Successfully released change log lock
-2025-02-17 22:32:05 - Command execution complete
-2025-02-17 22:32:05 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset liquibase/changelog/initial_schema.xml::9::mahavir.singh:
-     Reason: liquibase.exception.DatabaseException: ERROR: multiple primary keys for table "roles" are not allowed [Failed SQL: (0) ALTER TABLE public.roles ADD PRIMARY KEY (role_id)]
-2025-02-17 22:32:05 - HikariPool-1 - Shutdown initiated...
-2025-02-17 22:32:05 - HikariPool-1 - Shutdown completed.
-2025-02-17 22:32:05 - Stopping service [Tomcat]
-2025-02-17 22:32:05 - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-02-17 22:32:05 - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset liquibase/changelog/initial_schema.xml::9::mahavir.singh:
-     Reason: liquibase.exception.DatabaseException: ERROR: multiple primary keys for table "roles" are not allowed [Failed SQL: (0) ALTER TABLE public.roles ADD PRIMARY KEY (role_id)]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1775)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
-	at com.winsu.WinsuApplication.main(WinsuApplication.java:10)
-Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset liquibase/changelog/initial_schema.xml::9::mahavir.singh:
-     Reason: liquibase.exception.DatabaseException: ERROR: multiple primary keys for table "roles" are not allowed [Failed SQL: (0) ALTER TABLE public.roles ADD PRIMARY KEY (role_id)]
-	at liquibase.command.CommandScope.execute(CommandScope.java:237)
-	at liquibase.Liquibase.lambda$update$0(Liquibase.java:222)
-	at liquibase.Scope.lambda$child$0(Scope.java:184)
-	at liquibase.Scope.child(Scope.java:193)
-	at liquibase.Scope.child(Scope.java:183)
-	at liquibase.Scope.child(Scope.java:162)
-	at liquibase.Liquibase.runInScope(Liquibase.java:1371)
-	at liquibase.Liquibase.update(Liquibase.java:211)
-	at liquibase.Liquibase.update(Liquibase.java:193)
-	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:331)
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:286)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
-	... 18 common frames omitted
-Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset liquibase/changelog/initial_schema.xml::9::mahavir.singh:
-     Reason: liquibase.exception.DatabaseException: ERROR: multiple primary keys for table "roles" are not allowed [Failed SQL: (0) ALTER TABLE public.roles ADD PRIMARY KEY (role_id)]
-	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:122)
-	at liquibase.command.core.AbstractUpdateCommandStep.lambda$doRun$1(AbstractUpdateCommandStep.java:105)
-	at liquibase.Scope.lambda$child$0(Scope.java:184)
-	at liquibase.Scope.child(Scope.java:193)
-	at liquibase.Scope.child(Scope.java:183)
-	at liquibase.Scope.child(Scope.java:162)
-	at liquibase.command.core.AbstractUpdateCommandStep.doRun(AbstractUpdateCommandStep.java:104)
-	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$0(AbstractUpdateCommandStep.java:63)
-	at liquibase.Scope.lambda$child$0(Scope.java:184)
-	at liquibase.Scope.child(Scope.java:193)
-	at liquibase.Scope.child(Scope.java:183)
-	at liquibase.Scope.child(Scope.java:162)
-	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:62)
-	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:106)
-	at liquibase.command.CommandScope.execute(CommandScope.java:214)
-	... 30 common frames omitted
-Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset liquibase/changelog/initial_schema.xml::9::mahavir.singh:
-     Reason: liquibase.exception.DatabaseException: ERROR: multiple primary keys for table "roles" are not allowed [Failed SQL: (0) ALTER TABLE public.roles ADD PRIMARY KEY (role_id)]
-	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:785)
-	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:118)
-	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:68)
-	at liquibase.changelog.ChangeLogIterator$2.lambda$run$0(ChangeLogIterator.java:110)
-	at liquibase.Scope.lambda$child$0(Scope.java:184)
-	at liquibase.Scope.child(Scope.java:193)
-	at liquibase.Scope.child(Scope.java:183)
-	at liquibase.Scope.child(Scope.java:162)
-	at liquibase.Scope.child(Scope.java:250)
-	at liquibase.changelog.ChangeLogIterator$2.run(ChangeLogIterator.java:100)
-	at liquibase.Scope.lambda$child$0(Scope.java:184)
-	at liquibase.Scope.child(Scope.java:193)
-	at liquibase.Scope.child(Scope.java:183)
-	at liquibase.Scope.child(Scope.java:162)
-	at liquibase.Scope.child(Scope.java:250)
-	at liquibase.Scope.child(Scope.java:254)
-	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:74)
-	... 44 common frames omitted
-Caused by: liquibase.exception.DatabaseException: ERROR: multiple primary keys for table "roles" are not allowed [Failed SQL: (0) ALTER TABLE public.roles ADD PRIMARY KEY (role_id)]
-	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:468)
-	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:77)
-	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:177)
-	at liquibase.database.AbstractJdbcDatabase.execute(AbstractJdbcDatabase.java:1291)
-	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1273)
-	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:744)
-	... 60 common frames omitted
-Caused by: org.postgresql.util.PSQLException: ERROR: multiple primary keys for table "roles" are not allowed
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
-	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498)
-	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415)
-	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:335)
-	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:321)
-	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:297)
-	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:292)
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
-	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:462)
-	... 65 common frames omitted
-2025-02-17 22:33:36 - Starting WinsuApplication using Java 17.0.2 with PID 22332 (C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes started by bisht in C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu)
-2025-02-17 22:33:36 - No active profile set, falling back to 1 default profile: "default"
-2025-02-17 22:33:37 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-02-17 22:33:37 - Finished Spring Data repository scanning in 27 ms. Found 0 JPA repository interfaces.
-2025-02-17 22:33:38 - Tomcat initialized with port 8081 (http)
-2025-02-17 22:33:38 - Starting service [Tomcat]
-2025-02-17 22:33:38 - Starting Servlet engine: [Apache Tomcat/10.1.16]
-2025-02-17 22:33:38 - Initializing Spring embedded WebApplicationContext
-2025-02-17 22:33:38 - Root WebApplicationContext: initialization completed in 2481 ms
-2025-02-17 22:33:39 - HikariPool-1 - Starting...
-2025-02-17 22:33:39 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@52c9d3d0
-2025-02-17 22:33:39 - HikariPool-1 - Start completed.
-2025-02-17 22:33:39 - Set default schema name to public
-2025-02-17 22:33:40 - Creating database history table with name: public.databasechangelog
-2025-02-17 22:33:40 - Reading from public.databasechangelog
-2025-02-17 22:33:40 - Successfully acquired change log lock
-2025-02-17 22:33:40 - Using deploymentId: 9811820736
-2025-02-17 22:33:40 - Reading from public.databasechangelog
-2025-02-17 22:33:40 - Table user created
-2025-02-17 22:33:40 - ChangeSet liquibase/changelog/initial_schema.xml::1::mahavir.singh ran successfully in 22ms
-2025-02-17 22:33:40 - Table event created
-2025-02-17 22:33:40 - ChangeSet liquibase/changelog/initial_schema.xml::2::mahavir.singh ran successfully in 10ms
-2025-02-17 22:33:40 - Table question created
-2025-02-17 22:33:40 - Foreign key constraint added to question (event_id)
-2025-02-17 22:33:40 - ChangeSet liquibase/changelog/initial_schema.xml::3::mahavir.singh ran successfully in 20ms
-2025-02-17 22:33:40 - Table user_answer created
-2025-02-17 22:33:40 - Foreign key constraint added to user_answer (user_id)
-2025-02-17 22:33:40 - Foreign key constraint added to user_answer (question_id)
-2025-02-17 22:33:40 - ChangeSet liquibase/changelog/initial_schema.xml::4::mahavir.singh ran successfully in 16ms
-2025-02-17 22:33:40 - Table reward_distribution created
-2025-02-17 22:33:40 - ChangeSet liquibase/changelog/initial_schema.xml::5::mahavir.singh ran successfully in 7ms
-2025-02-17 22:33:40 - Table wallet_transaction created
-2025-02-17 22:33:40 - Foreign key constraint added to wallet_transaction (user_id)
-2025-02-17 22:33:40 - ChangeSet liquibase/changelog/initial_schema.xml::6::mahavir.singh ran successfully in 10ms
-2025-02-17 22:33:40 - Table correct_answer created
-2025-02-17 22:33:40 - Foreign key constraint added to correct_answer (event_id)
-2025-02-17 22:33:40 - Foreign key constraint added to correct_answer (question_id)
-2025-02-17 22:33:40 - ChangeSet liquibase/changelog/initial_schema.xml::7::mahavir.singh ran successfully in 15ms
-2025-02-17 22:33:40 - Table roles created
-2025-02-17 22:33:40 - ChangeSet liquibase/changelog/initial_schema.xml::9::mahavir.singh ran successfully in 9ms
-2025-02-17 22:33:40 - Table user_roles created
-2025-02-17 22:33:41 - Primary key added to user_roles (user_id, role_id)
-2025-02-17 22:33:41 - Foreign key constraint added to user_roles (user_id)
-2025-02-17 22:33:41 - Foreign key constraint added to user_roles (role_id)
-2025-02-17 22:33:41 - ChangeSet liquibase/changelog/initial_schema.xml::10::mahavir.singh ran successfully in 21ms
-2025-02-17 22:33:41 - UPDATE SUMMARY
-2025-02-17 22:33:41 - Run:                          9
-2025-02-17 22:33:41 - Previously run:               0
-2025-02-17 22:33:41 - Filtered out:                 0
-2025-02-17 22:33:41 - -------------------------------
-2025-02-17 22:33:41 - Total change sets:            9
-2025-02-17 22:33:41 - Update summary generated
-2025-02-17 22:33:41 - Update command completed successfully.
-2025-02-17 22:33:41 - Successfully released change log lock
-2025-02-17 22:33:41 - Command execution complete
-2025-02-17 22:33:41 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-02-17 22:33:41 - HHH000412: Hibernate ORM core version 6.3.1.Final
-2025-02-17 22:33:41 - HHH000026: Second-level cache disabled
-2025-02-17 22:33:41 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-02-17 22:33:41 - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-02-17 22:33:43 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-02-17 22:33:43 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-02-17 22:33:43 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-02-17 22:33:43 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7335164e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@563b9462, org.springframework.security.web.context.SecurityContextHolderFilter@2aa93f15, org.springframework.security.web.header.HeaderWriterFilter@4242a0e7, org.springframework.web.filter.CorsFilter@368814bb, org.springframework.security.web.csrf.CsrfFilter@ec7c39b, org.springframework.security.web.authentication.logout.LogoutFilter@3e4162ee, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@5b0d8236, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@1d35dcd4, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@15c8bb25, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@160b010e, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@71d85b53, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@19940123, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1bd5577e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2a04a440, org.springframework.security.oauth2.client.web.OAuth2AuthorizationCodeGrantFilter@7d45ffd, org.springframework.security.web.access.ExceptionTranslationFilter@7b2c8390, org.springframework.security.web.access.intercept.AuthorizationFilter@469c1292]
-2025-02-17 22:33:43 - Tomcat started on port 8081 (http) with context path ''
-2025-02-17 22:33:44 - Started WinsuApplication in 8.655 seconds (process running for 9.411)
-2025-02-17 22:58:05 - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-02-17 22:58:05 - HikariPool-1 - Shutdown initiated...
-2025-02-17 22:58:05 - HikariPool-1 - Shutdown completed.
-2025-02-17 22:58:15 - Starting WinsuApplication using Java 17.0.2 with PID 21556 (C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes started by bisht in C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu)
-2025-02-17 22:58:15 - No active profile set, falling back to 1 default profile: "default"
-2025-02-17 22:58:16 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-02-17 22:58:16 - Finished Spring Data repository scanning in 37 ms. Found 0 JPA repository interfaces.
-2025-02-17 22:58:16 - Tomcat initialized with port 8081 (http)
-2025-02-17 22:58:16 - Starting service [Tomcat]
-2025-02-17 22:58:16 - Starting Servlet engine: [Apache Tomcat/10.1.16]
-2025-02-17 22:58:17 - Initializing Spring embedded WebApplicationContext
-2025-02-17 22:58:17 - Root WebApplicationContext: initialization completed in 1977 ms
-2025-02-17 22:58:17 - HikariPool-1 - Starting...
-2025-02-17 22:58:17 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@fd413fb
-2025-02-17 22:58:17 - HikariPool-1 - Start completed.
-2025-02-17 22:58:17 - Set default schema name to public
-2025-02-17 22:58:18 - Reading from public.databasechangelog
-2025-02-17 22:58:19 - Reading from public.databasechangelog
-2025-02-17 22:58:19 - UPDATE SUMMARY
-2025-02-17 22:58:19 - Run:                          0
-2025-02-17 22:58:19 - Previously run:               9
-2025-02-17 22:58:19 - Filtered out:                 0
-2025-02-17 22:58:19 - -------------------------------
-2025-02-17 22:58:19 - Total change sets:            9
-2025-02-17 22:58:19 - Update summary generated
-2025-02-17 22:58:19 - Successfully released change log lock
-2025-02-17 22:58:19 - Command execution complete
-2025-02-17 22:58:19 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-02-17 22:58:19 - HHH000412: Hibernate ORM core version 6.3.1.Final
-2025-02-17 22:58:19 - HHH000026: Second-level cache disabled
-2025-02-17 22:58:19 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-02-17 22:58:19 - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-02-17 22:58:21 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-02-17 22:58:21 - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [event_image_url] in table [event]
-2025-02-17 22:58:21 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [event_image_url] in table [event]
-2025-02-17 22:58:21 - HikariPool-1 - Shutdown initiated...
-2025-02-17 22:58:21 - HikariPool-1 - Shutdown completed.
-2025-02-17 22:58:21 - Stopping service [Tomcat]
-2025-02-17 22:58:21 - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-02-17 22:58:21 - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [event_image_url] in table [event]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1775)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
-	at com.winsu.WinsuApplication.main(WinsuApplication.java:10)
-Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [event_image_url] in table [event]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
-	... 16 common frames omitted
-Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [event_image_url] in table [event]
-	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:145)
-	at org.hibernate.tool.schema.internal.GroupedSchemaValidatorImpl.validateTables(GroupedSchemaValidatorImpl.java:46)
-	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.performValidation(AbstractSchemaValidator.java:97)
-	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.doValidation(AbstractSchemaValidator.java:75)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:295)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
-	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
-	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
-	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:295)
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	... 20 common frames omitted
-2025-02-17 23:01:54 - Starting WinsuApplication using Java 17.0.2 with PID 9652 (C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes started by bisht in C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu)
-2025-02-17 23:01:54 - No active profile set, falling back to 1 default profile: "default"
-2025-02-17 23:01:55 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-02-17 23:01:55 - Finished Spring Data repository scanning in 46 ms. Found 0 JPA repository interfaces.
-2025-02-17 23:01:56 - Tomcat initialized with port 8081 (http)
-2025-02-17 23:01:56 - Starting service [Tomcat]
-2025-02-17 23:01:56 - Starting Servlet engine: [Apache Tomcat/10.1.16]
-2025-02-17 23:01:56 - Initializing Spring embedded WebApplicationContext
-2025-02-17 23:01:56 - Root WebApplicationContext: initialization completed in 2487 ms
-2025-02-17 23:01:57 - HikariPool-1 - Starting...
-2025-02-17 23:01:57 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3730f716
-2025-02-17 23:01:57 - HikariPool-1 - Start completed.
-2025-02-17 23:01:57 - Set default schema name to public
-2025-02-17 23:01:58 - Reading from public.databasechangelog
-2025-02-17 23:01:58 - Change failed validation!
-2025-02-17 23:01:58 - Command execution complete
-2025-02-17 23:01:58 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          liquibase/changelog/initial_schema.xml::2::mahavir.singh was: 9:1992f8acc956e844b4e5f8fb49f0b815 but is now: 9:26e87f293795442bcd04819c859d05bc
-
-2025-02-17 23:01:58 - HikariPool-1 - Shutdown initiated...
-2025-02-17 23:01:58 - HikariPool-1 - Shutdown completed.
-2025-02-17 23:01:58 - Stopping service [Tomcat]
-2025-02-17 23:01:58 - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-02-17 23:01:58 - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          liquibase/changelog/initial_schema.xml::2::mahavir.singh was: 9:1992f8acc956e844b4e5f8fb49f0b815 but is now: 9:26e87f293795442bcd04819c859d05bc
-
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1775)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
-	at com.winsu.WinsuApplication.main(WinsuApplication.java:10)
-Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          liquibase/changelog/initial_schema.xml::2::mahavir.singh was: 9:1992f8acc956e844b4e5f8fb49f0b815 but is now: 9:26e87f293795442bcd04819c859d05bc
-
-	at liquibase.command.CommandScope.execute(CommandScope.java:237)
-	at liquibase.Liquibase.lambda$update$0(Liquibase.java:222)
-	at liquibase.Scope.lambda$child$0(Scope.java:184)
-	at liquibase.Scope.child(Scope.java:193)
-	at liquibase.Scope.child(Scope.java:183)
-	at liquibase.Scope.child(Scope.java:162)
-	at liquibase.Liquibase.runInScope(Liquibase.java:1371)
-	at liquibase.Liquibase.update(Liquibase.java:211)
-	at liquibase.Liquibase.update(Liquibase.java:193)
-	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:331)
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:286)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
-	... 18 common frames omitted
-Caused by: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          liquibase/changelog/initial_schema.xml::2::mahavir.singh was: 9:1992f8acc956e844b4e5f8fb49f0b815 but is now: 9:26e87f293795442bcd04819c859d05bc
-
-	at liquibase.changelog.DatabaseChangeLog.validate(DatabaseChangeLog.java:353)
-	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.run(DatabaseChangelogCommandStep.java:92)
-	at liquibase.command.CommandScope.execute(CommandScope.java:214)
-	... 30 common frames omitted
-2025-02-17 23:02:16 - Starting WinsuApplication using Java 17.0.2 with PID 16216 (C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes started by bisht in C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu)
-2025-02-17 23:02:16 - No active profile set, falling back to 1 default profile: "default"
-2025-02-17 23:02:17 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-02-17 23:02:17 - Finished Spring Data repository scanning in 36 ms. Found 0 JPA repository interfaces.
-2025-02-17 23:02:18 - Tomcat initialized with port 8081 (http)
-2025-02-17 23:02:18 - Starting service [Tomcat]
-2025-02-17 23:02:18 - Starting Servlet engine: [Apache Tomcat/10.1.16]
-2025-02-17 23:02:18 - Initializing Spring embedded WebApplicationContext
-2025-02-17 23:02:18 - Root WebApplicationContext: initialization completed in 2111 ms
-2025-02-17 23:02:19 - HikariPool-1 - Starting...
-2025-02-17 23:02:19 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6b357eb6
-2025-02-17 23:02:19 - HikariPool-1 - Start completed.
-2025-02-17 23:02:19 - Set default schema name to public
-2025-02-17 23:02:20 - Creating database history table with name: public.databasechangelog
-2025-02-17 23:02:20 - Reading from public.databasechangelog
-2025-02-17 23:02:20 - Successfully acquired change log lock
-2025-02-17 23:02:20 - Using deploymentId: 9813540771
-2025-02-17 23:02:20 - Reading from public.databasechangelog
-2025-02-17 23:02:20 - Table user created
-2025-02-17 23:02:20 - ChangeSet liquibase/changelog/initial_schema.xml::1::mahavir.singh ran successfully in 21ms
-2025-02-17 23:02:20 - Table event created
-2025-02-17 23:02:20 - ChangeSet liquibase/changelog/initial_schema.xml::2::mahavir.singh ran successfully in 11ms
-2025-02-17 23:02:20 - Table question created
-2025-02-17 23:02:20 - Foreign key constraint added to question (event_id)
-2025-02-17 23:02:20 - ChangeSet liquibase/changelog/initial_schema.xml::3::mahavir.singh ran successfully in 20ms
-2025-02-17 23:02:20 - Table user_answer created
-2025-02-17 23:02:20 - Foreign key constraint added to user_answer (user_id)
-2025-02-17 23:02:20 - Foreign key constraint added to user_answer (question_id)
-2025-02-17 23:02:20 - ChangeSet liquibase/changelog/initial_schema.xml::4::mahavir.singh ran successfully in 17ms
-2025-02-17 23:02:20 - Table reward_distribution created
-2025-02-17 23:02:20 - ChangeSet liquibase/changelog/initial_schema.xml::5::mahavir.singh ran successfully in 7ms
-2025-02-17 23:02:20 - Table wallet_transaction created
-2025-02-17 23:02:20 - Foreign key constraint added to wallet_transaction (user_id)
-2025-02-17 23:02:20 - ChangeSet liquibase/changelog/initial_schema.xml::6::mahavir.singh ran successfully in 14ms
-2025-02-17 23:02:21 - Table correct_answer created
-2025-02-17 23:02:21 - Foreign key constraint added to correct_answer (event_id)
-2025-02-17 23:02:21 - Foreign key constraint added to correct_answer (question_id)
-2025-02-17 23:02:21 - ChangeSet liquibase/changelog/initial_schema.xml::7::mahavir.singh ran successfully in 19ms
-2025-02-17 23:02:21 - Table roles created
-2025-02-17 23:02:21 - ChangeSet liquibase/changelog/initial_schema.xml::9::mahavir.singh ran successfully in 11ms
-2025-02-17 23:02:21 - Table user_roles created
-2025-02-17 23:02:21 - Primary key added to user_roles (user_id, role_id)
-2025-02-17 23:02:21 - Foreign key constraint added to user_roles (user_id)
-2025-02-17 23:02:21 - Foreign key constraint added to user_roles (role_id)
-2025-02-17 23:02:21 - ChangeSet liquibase/changelog/initial_schema.xml::10::mahavir.singh ran successfully in 25ms
-2025-02-17 23:02:21 - UPDATE SUMMARY
-2025-02-17 23:02:21 - Run:                          9
-2025-02-17 23:02:21 - Previously run:               0
-2025-02-17 23:02:21 - Filtered out:                 0
-2025-02-17 23:02:21 - -------------------------------
-2025-02-17 23:02:21 - Total change sets:            9
-2025-02-17 23:02:21 - Update summary generated
-2025-02-17 23:02:21 - Update command completed successfully.
-2025-02-17 23:02:21 - Successfully released change log lock
-2025-02-17 23:02:21 - Command execution complete
-2025-02-17 23:02:21 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-02-17 23:02:21 - HHH000412: Hibernate ORM core version 6.3.1.Final
-2025-02-17 23:02:21 - HHH000026: Second-level cache disabled
-2025-02-17 23:02:21 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-02-17 23:02:21 - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-02-17 23:02:23 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-02-17 23:02:23 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-02-17 23:02:23 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-02-17 23:02:23 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@94af25, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@34bc5763, org.springframework.security.web.context.SecurityContextHolderFilter@75dbf41c, org.springframework.security.web.header.HeaderWriterFilter@742b91a5, org.springframework.web.filter.CorsFilter@12025b72, org.springframework.security.web.csrf.CsrfFilter@18cc07ca, org.springframework.security.web.authentication.logout.LogoutFilter@2ae56ac6, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@127350d8, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@2096ade6, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@2a04a440, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@7316742f, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@288c16a5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@18b0bbc3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@17a12fcd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@dc46916, org.springframework.security.oauth2.client.web.OAuth2AuthorizationCodeGrantFilter@7f3964b0, org.springframework.security.web.access.ExceptionTranslationFilter@523c4a6d, org.springframework.security.web.access.intercept.AuthorizationFilter@1f0b2ffb]
-2025-02-17 23:02:24 - Tomcat started on port 8081 (http) with context path ''
-2025-02-17 23:02:24 - Started WinsuApplication in 8.132 seconds (process running for 8.705)
+2025-02-19 21:20:00 - Starting WinsuApplicationTests using Java 20.0.1 with PID 15172 (started by bisht in C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu)
+2025-02-19 21:20:00 - No active profile set, falling back to 1 default profile: "default"
+2025-02-19 21:20:02 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-19 21:20:02 - Finished Spring Data repository scanning in 89 ms. Found 1 JPA repository interface.
+2025-02-19 21:20:03 - HikariPool-1 - Starting...
+2025-02-19 21:20:03 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@22ead351
+2025-02-19 21:20:03 - HikariPool-1 - Start completed.
+2025-02-19 21:20:04 - Set default schema name to public
+2025-02-19 21:20:05 - Reading from public.databasechangelog
+2025-02-19 21:20:05 - Reading from public.databasechangelog
+2025-02-19 21:20:05 - UPDATE SUMMARY
+2025-02-19 21:20:05 - Run:                          0
+2025-02-19 21:20:05 - Previously run:               9
+2025-02-19 21:20:05 - Filtered out:                 0
+2025-02-19 21:20:05 - -------------------------------
+2025-02-19 21:20:05 - Total change sets:            9
+2025-02-19 21:20:05 - Update summary generated
+2025-02-19 21:20:05 - Successfully released change log lock
+2025-02-19 21:20:05 - Command execution complete
+2025-02-19 21:20:05 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-19 21:20:05 - HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-02-19 21:20:05 - HHH000026: Second-level cache disabled
+2025-02-19 21:20:06 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-19 21:20:06 - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-19 21:20:07 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-19 21:20:07 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-19 21:20:08 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-19 21:20:08 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@26309e6f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1db8ec3, org.springframework.security.web.context.SecurityContextHolderFilter@332cf8ba, org.springframework.security.web.header.HeaderWriterFilter@980142a, org.springframework.web.filter.CorsFilter@1cc1813a, org.springframework.security.web.csrf.CsrfFilter@6e886e25, org.springframework.security.web.authentication.logout.LogoutFilter@607fa188, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@2511ddb7, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@41d101d4, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@50f572e8, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@1ee2b6c3, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@67a8a641, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@12ad2a0b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1500c6e7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@45c99f3d, org.springframework.security.oauth2.client.web.OAuth2AuthorizationCodeGrantFilter@6d8948b2, org.springframework.security.web.access.ExceptionTranslationFilter@2db2b708, org.springframework.security.web.access.intercept.AuthorizationFilter@687101a2]
+2025-02-19 21:20:09 - Started WinsuApplicationTests in 8.84 seconds (process running for 10.342)
+2025-02-19 21:20:10 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-19 21:20:10 - HikariPool-1 - Shutdown initiated...
+2025-02-19 21:20:10 - HikariPool-1 - Shutdown completed.
+2025-02-19 21:20:41 - Starting WinsuApplication using Java 17.0.2 with PID 12040 (C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes started by bisht in C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu)
+2025-02-19 21:20:41 - No active profile set, falling back to 1 default profile: "default"
+2025-02-19 21:20:42 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-19 21:20:43 - Finished Spring Data repository scanning in 240 ms. Found 1 JPA repository interface.
+2025-02-19 21:20:44 - Tomcat initialized with port 8081 (http)
+2025-02-19 21:20:44 - Starting service [Tomcat]
+2025-02-19 21:20:44 - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-02-19 21:20:44 - Initializing Spring embedded WebApplicationContext
+2025-02-19 21:20:44 - Root WebApplicationContext: initialization completed in 3227 ms
+2025-02-19 21:20:44 - HikariPool-1 - Starting...
+2025-02-19 21:20:45 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@45292ec1
+2025-02-19 21:20:45 - HikariPool-1 - Start completed.
+2025-02-19 21:20:45 - Set default schema name to public
+2025-02-19 21:20:46 - Reading from public.databasechangelog
+2025-02-19 21:20:46 - Reading from public.databasechangelog
+2025-02-19 21:20:46 - UPDATE SUMMARY
+2025-02-19 21:20:46 - Run:                          0
+2025-02-19 21:20:46 - Previously run:               9
+2025-02-19 21:20:46 - Filtered out:                 0
+2025-02-19 21:20:46 - -------------------------------
+2025-02-19 21:20:46 - Total change sets:            9
+2025-02-19 21:20:46 - Update summary generated
+2025-02-19 21:20:46 - Successfully released change log lock
+2025-02-19 21:20:46 - Command execution complete
+2025-02-19 21:20:46 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-19 21:20:46 - HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-02-19 21:20:46 - HHH000026: Second-level cache disabled
+2025-02-19 21:20:47 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-19 21:20:47 - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-19 21:20:48 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-19 21:20:48 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-19 21:20:48 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-19 21:20:49 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6c88026b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1b03d582, org.springframework.security.web.context.SecurityContextHolderFilter@7f52aba0, org.springframework.security.web.header.HeaderWriterFilter@ed37e52, org.springframework.web.filter.CorsFilter@aa9b6a8, org.springframework.security.web.csrf.CsrfFilter@309ea91f, org.springframework.security.web.authentication.logout.LogoutFilter@70dd4172, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@7b83476f, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@47690183, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@440f434f, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@39ad5a7d, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@162304e3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@47fa54d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3432a612, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3a94d716, org.springframework.security.oauth2.client.web.OAuth2AuthorizationCodeGrantFilter@25ca56de, org.springframework.security.web.access.ExceptionTranslationFilter@44ee788f, org.springframework.security.web.access.intercept.AuthorizationFilter@281edf6b]
+2025-02-19 21:20:49 - Tomcat started on port 8081 (http) with context path ''
+2025-02-19 21:20:49 - Started WinsuApplication in 9.478 seconds (process running for 10.389)
+2025-02-19 21:25:27 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-19 21:25:27 - Initializing Servlet 'dispatcherServlet'
+2025-02-19 21:25:27 - Completed initialization in 2 ms
+2025-02-19 21:25:27 - Cache miss for REQUEST dispatch to '/events' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-02-19 21:27:16 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-19 21:27:16 - HikariPool-1 - Shutdown initiated...
+2025-02-19 21:27:16 - HikariPool-1 - Shutdown completed.
+2025-02-19 21:27:22 - Starting WinsuApplication using Java 17.0.2 with PID 15972 (C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes started by bisht in C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu)
+2025-02-19 21:27:22 - No active profile set, falling back to 1 default profile: "default"
+2025-02-19 21:27:24 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-19 21:27:25 - Finished Spring Data repository scanning in 132 ms. Found 1 JPA repository interface.
+2025-02-19 21:27:26 - Tomcat initialized with port 8081 (http)
+2025-02-19 21:27:26 - Starting service [Tomcat]
+2025-02-19 21:27:26 - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-02-19 21:27:26 - Initializing Spring embedded WebApplicationContext
+2025-02-19 21:27:26 - Root WebApplicationContext: initialization completed in 3968 ms
+2025-02-19 21:27:27 - HikariPool-1 - Starting...
+2025-02-19 21:27:27 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@77724cbe
+2025-02-19 21:27:27 - HikariPool-1 - Start completed.
+2025-02-19 21:27:28 - Set default schema name to public
+2025-02-19 21:27:29 - Reading from public.databasechangelog
+2025-02-19 21:27:29 - Reading from public.databasechangelog
+2025-02-19 21:27:29 - UPDATE SUMMARY
+2025-02-19 21:27:29 - Run:                          0
+2025-02-19 21:27:29 - Previously run:               9
+2025-02-19 21:27:29 - Filtered out:                 0
+2025-02-19 21:27:29 - -------------------------------
+2025-02-19 21:27:29 - Total change sets:            9
+2025-02-19 21:27:29 - Update summary generated
+2025-02-19 21:27:29 - Successfully released change log lock
+2025-02-19 21:27:29 - Command execution complete
+2025-02-19 21:27:29 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-19 21:27:29 - HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-02-19 21:27:29 - HHH000026: Second-level cache disabled
+2025-02-19 21:27:30 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-19 21:27:30 - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-19 21:27:32 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-19 21:27:32 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-19 21:27:32 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-19 21:27:33 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2d43bedb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2ca08575, org.springframework.security.web.context.SecurityContextHolderFilter@78b5c29f, org.springframework.security.web.header.HeaderWriterFilter@82134e4, org.springframework.web.filter.CorsFilter@1cbe3497, org.springframework.security.web.csrf.CsrfFilter@74889ebe, org.springframework.security.web.authentication.logout.LogoutFilter@19ed779e, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@b234301, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@68212585, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@1653cc95, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@5a9bb7dd, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@5c3d91bc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@39088acb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@70dd4172, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6cb84986, org.springframework.security.oauth2.client.web.OAuth2AuthorizationCodeGrantFilter@5008c5a, org.springframework.security.web.access.ExceptionTranslationFilter@47585784, org.springframework.security.web.access.intercept.AuthorizationFilter@5e4168dd]
+2025-02-19 21:27:33 - Tomcat started on port 8081 (http) with context path ''
+2025-02-19 21:27:33 - Started WinsuApplication in 11.992 seconds (process running for 12.834)
+2025-02-19 21:28:03 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-19 21:28:03 - Initializing Servlet 'dispatcherServlet'
+2025-02-19 21:28:03 - Completed initialization in 2 ms
+2025-02-19 21:28:03 - Cache miss for REQUEST dispatch to '/api/events' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-02-19 21:31:46 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-19 21:31:46 - HikariPool-1 - Shutdown initiated...
+2025-02-19 21:31:46 - HikariPool-1 - Shutdown completed.
+2025-02-19 21:31:56 - Starting WinsuApplication using Java 17.0.2 with PID 11304 (C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu\target\classes started by bisht in C:\Users\bisht\OneDrive\Desktop\IPL2025\winsu)
+2025-02-19 21:31:56 - No active profile set, falling back to 1 default profile: "default"
+2025-02-19 21:31:57 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-19 21:31:57 - Finished Spring Data repository scanning in 86 ms. Found 1 JPA repository interface.
+2025-02-19 21:31:58 - Tomcat initialized with port 8081 (http)
+2025-02-19 21:31:58 - Starting service [Tomcat]
+2025-02-19 21:31:58 - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-02-19 21:31:59 - Initializing Spring embedded WebApplicationContext
+2025-02-19 21:31:59 - Root WebApplicationContext: initialization completed in 2281 ms
+2025-02-19 21:31:59 - HikariPool-1 - Starting...
+2025-02-19 21:31:59 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@65514add
+2025-02-19 21:31:59 - HikariPool-1 - Start completed.
+2025-02-19 21:31:59 - Set default schema name to public
+2025-02-19 21:32:00 - Reading from public.databasechangelog
+2025-02-19 21:32:00 - Reading from public.databasechangelog
+2025-02-19 21:32:00 - UPDATE SUMMARY
+2025-02-19 21:32:00 - Run:                          0
+2025-02-19 21:32:00 - Previously run:               9
+2025-02-19 21:32:00 - Filtered out:                 0
+2025-02-19 21:32:00 - -------------------------------
+2025-02-19 21:32:00 - Total change sets:            9
+2025-02-19 21:32:00 - Update summary generated
+2025-02-19 21:32:00 - Successfully released change log lock
+2025-02-19 21:32:00 - Command execution complete
+2025-02-19 21:32:01 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-19 21:32:01 - HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-02-19 21:32:01 - HHH000026: Second-level cache disabled
+2025-02-19 21:32:01 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-19 21:32:01 - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-19 21:32:03 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-19 21:32:03 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-19 21:32:03 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-19 21:32:03 - Tomcat started on port 8081 (http) with context path ''
+2025-02-19 21:32:03 - Started WinsuApplication in 8.196 seconds (process running for 9.004)
+2025-02-19 21:32:09 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-19 21:32:09 - Initializing Servlet 'dispatcherServlet'
+2025-02-19 21:32:09 - Completed initialization in 1 ms

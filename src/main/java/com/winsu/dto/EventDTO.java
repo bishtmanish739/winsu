@@ -1,20 +1,16 @@
-package com.winsu.domain;
+package com.winsu.dto;
 
-import jakarta.persistence.*;
-import lombok.Data;
+import com.winsu.enums.EventStatus;
+
 import java.time.LocalDateTime;
-import java.util.HashMap;
 
 
-@Entity
-public class Event {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class EventDTO {
     private Long eventId;
     private String eventName;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    private String status; // UPCOMING, LIVE, COMPLETED
+    private EventStatus status;
     private String eventImageUrl;
 
     public Long getEventId() {
@@ -49,11 +45,11 @@ public class Event {
         this.endTime = endTime;
     }
 
-    public String getStatus() {
+    public EventStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(EventStatus status) {
         this.status = status;
     }
 
@@ -65,3 +61,5 @@ public class Event {
         this.eventImageUrl = eventImageUrl;
     }
 }
+
+
